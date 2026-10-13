@@ -7,6 +7,7 @@ import pickle
 from typing import Mapping
 import lightgbm as lgb
 import numpy as np
+import pandas as pd
 
 from .features import FEATURE_NAMES, build_feature_planes, rows_from_planes
 
@@ -104,7 +105,8 @@ class M3RepRanker:
         planes = build_feature_planes(visible_labels, kernels, static)
         d = np.tile(np.arange(n_drugs), len(disease_indices))
         q = np.repeat(disease_indices, n_drugs)
-        values = self.model.predict_proba(rows_from_planes(planes, d, q))[:, 1]
+        rows = pd.DataFrame(rows_from_planes(planes, d, q), columns=self.feature_names)
+        values = self.model.predict_proba(rows)[:, 1]
         return values.reshape(len(disease_indices), n_drugs).T
 
     def save(self, path: str | Path) -> None:
