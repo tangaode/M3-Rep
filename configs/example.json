@@ -1,0 +1,10 @@
+{
+  "model": "M3-Rep",
+  "feature_groups": ["graph", "chemistry", "disease_text", "mechanism"],
+  "negative_samples_per_positive": 20,
+  "top_k_neighbours": {
+    "disease": 30,
+    "drug": 20
+  },
+  "metrics": ["AP", "Recall@20", "NDCG@20", "MRR", "AUROC"]
+}

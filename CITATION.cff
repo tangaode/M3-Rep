@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use M3-Rep, please cite the accompanying manuscript."
+title: "M3-Rep: multimodal drug-disease prioritization"
+type: software
+version: 0.1.0
+date-released: 2026-10-13
+license: MIT
+repository-code: "https://github.com/tangaode/M3-Rep"
